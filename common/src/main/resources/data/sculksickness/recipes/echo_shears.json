@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "sculksickness:echo_dust_block"
+  },
+  "base": {
+    "item": "minecraft:shears"
+  },
+  "result": {
+    "item": "sculksickness:echo_shears"
+  }
+}

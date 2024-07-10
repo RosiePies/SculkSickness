@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:potion",
+      "nbt": "{CustomPotionColor:213328}"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/sickness_potion"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/sickness_potion"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/immunity_potion",
+  "criteria": {
+    "obtained_sickness_potion":{
+      "trigger": "minecraft:brewed_potion",
+      "conditions": {
+        "potion": "sculksickness:sculk_sickness"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_sickness_potion"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 25,
+    "function": ""
+  }
+}

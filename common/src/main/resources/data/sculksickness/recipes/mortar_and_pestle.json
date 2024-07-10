@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "!": {
+      "item": "minecraft:stone_shovel"
+    }
+  },
+  "pattern": [
+    "  !",
+    "# #",
+    " # "
+  ],
+  "result": {
+    "item": "sculksickness:mortar_and_pestle"
+  },
+  "show_notification": true
+}

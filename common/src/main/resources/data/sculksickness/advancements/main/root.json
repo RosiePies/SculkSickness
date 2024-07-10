@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:sculk_blossom"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/root"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/root"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "criteria": {
+    "found_deep_dark": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:deep_dark"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "found_deep_dark"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 10,
+    "function": ""
+  }
+}

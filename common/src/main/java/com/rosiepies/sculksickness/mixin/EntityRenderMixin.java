@@ -1,7 +1,7 @@
 package com.rosiepies.sculksickness.mixin;
 
 import com.rosiepies.sculksickness.SculkSickness;
-import com.rosiepies.sculksickness.register.ModEffects;
+import com.rosiepies.sculksickness.register.EffectInit;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
@@ -24,7 +24,7 @@ public abstract class EntityRenderMixin<T extends Entity> {
         LocalPlayer player = Minecraft.getInstance().player;
         if (entity instanceof LivingEntity livingEntity &&  player != null) {
             boolean isEntityStill = livingEntity.getDeltaMovement().x <= 0 && livingEntity.isOnGround() && livingEntity.getDeltaMovement().z <= 0;
-            boolean isEffectAmplifier = (SculkSickness.compareAmplifier(player.getEffect(ModEffects.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 1));
+            boolean isEffectAmplifier = (SculkSickness.compareAmplifier(player.getEffect(EffectInit.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 1));
             if (isEffectAmplifier && ((isEntityStill && !entity.isOnFire() && !entity.isFreezing()) || entity.dampensVibrations())) {
                 cir.setReturnValue(false);
             } else if (player.distanceTo(entity) <= 96) {

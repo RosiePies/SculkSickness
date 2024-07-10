@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:echo_dust"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/echo_dust"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/echo_dust"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/mortar_echo",
+  "criteria": {
+    "obtained_echo_dust":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:echo_dust"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_echo_dust"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 0,
+    "function": ""
+  }
+}

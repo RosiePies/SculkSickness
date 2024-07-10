@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:mortar_and_pestle"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/mortar_pestle"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/mortar_pestle"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/root",
+  "criteria": {
+    "obtained_mortar_pestle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:mortar_and_pestle"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_mortar_pestle"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 0,
+    "function": ""
+  }
+}

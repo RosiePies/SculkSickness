@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:mortar_and_echo",
+              "sculksickness:vile_herb",
+              "sculksickness:axolotl_leg",
+              "minecraft:glow_berries",
+              "minecraft:spore_blossom",
+              "minecraft:glow_lichen"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:ambrosia_herb"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:ambrosia_herb"
+    ]
+  }
+}

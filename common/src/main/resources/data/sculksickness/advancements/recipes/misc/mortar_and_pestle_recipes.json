@@ -1,0 +1,49 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:mortar_and_pestle"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe2": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:mortar_and_pestle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe2"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:dyes_from_mortar/black_dye",
+      "sculksickness:dyes_from_mortar/blue_dye",
+      "sculksickness:dyes_from_mortar/brown_dye",
+      "sculksickness:dyes_from_mortar/cyan_dye",
+      "sculksickness:dyes_from_mortar/gray_dye",
+      "sculksickness:dyes_from_mortar/green_dye",
+      "sculksickness:dyes_from_mortar/light_blue_dye",
+      "sculksickness:dyes_from_mortar/light_gray_dye",
+      "sculksickness:dyes_from_mortar/lime_dye",
+      "sculksickness:dyes_from_mortar/magenta_dye",
+      "sculksickness:dyes_from_mortar/orange_dye",
+      "sculksickness:dyes_from_mortar/pink_dye",
+      "sculksickness:dyes_from_mortar/purple_dye",
+      "sculksickness:dyes_from_mortar/red_dye",
+      "sculksickness:dyes_from_mortar/white_dye",
+      "sculksickness:dyes_from_mortar/yellow_dye"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:potion",
+      "nbt": "{CustomPotionColor:4530747}"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/resonant_deep_potion"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/resonant_deep_potion"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/bloom_fruit",
+  "criteria": {
+    "obtained_resonant_deep_potion":{
+      "trigger": "minecraft:brewed_potion",
+      "conditions": {
+        "potion": "sculksickness:resonant_deep"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_resonant_deep_potion"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 10,
+    "function": ""
+  }
+}

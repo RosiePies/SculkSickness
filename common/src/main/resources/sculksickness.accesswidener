@@ -1,5 +1,11 @@
 accessWidener v2 named
 
-# Rendering
 accessible class net/minecraft/client/renderer/FogRenderer$MobEffectFogFunction
 accessible class net/minecraft/client/renderer/FogRenderer$FogData
+
+accessible method net/minecraft/world/effect/MobEffect <init> (Lnet/minecraft/world/effect/MobEffectCategory;I)V
+
+accessible field net/minecraft/world/item/alchemy/PotionBrewing POTION_MIXES Ljava/util/List;
+accessible field net/minecraft/world/item/alchemy/PotionBrewing CONTAINER_MIXES Ljava/util/List;
+accessible method net/minecraft/world/item/alchemy/PotionBrewing addMix (Lnet/minecraft/world/item/alchemy/Potion;Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/alchemy/Potion;)V
+accessible class net/minecraft/world/item/alchemy/PotionBrewing$Mix

@@ -1,9 +1,11 @@
 {
+  "replace": false,
   "values": [
-    "minecraft:sculk",
-    "minecraft:sculk_catalyst",
     "minecraft:sculk_vein",
     "minecraft:sculk_shrieker",
-    "minecraft:sculk_sensor"
+    "minecraft:sculk_sensor",
+    "#sculkhorde:infested_block",
+    "minecraft:sculk",
+    "minecraft:sculk_catalyst"
   ]
 }

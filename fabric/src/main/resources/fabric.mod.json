@@ -3,7 +3,7 @@
   "id": "sculksickness",
   "version": "${version}",
   "name": "SculkSickness",
-  "description": "Watch out for the sculk, it seems to be more infectious...",
+  "description": "A forbidden sickness is growing in the deep dark, stay away or face the consequences...",
   "authors": [
     "RosiePies_"
   ],
@@ -14,13 +14,18 @@
   "entrypoints": {
     "main": [
       "com.rosiepies.sculksickness.fabric.SculkSicknessFabric"
+    ],
+    "client": [
+      "com.rosiepies.sculksickness.fabric.SculkSicknessFabricClient"
     ]
   },
   "mixins": [
     "sculksickness-common.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.11",
-    "minecraft": ">=1.19.2"
+    "fabric": "*",
+    "minecraft": ">=${minecraftVersion}",
+    "architectury": ">=${architecturyVersion}",
+    "cloth_config": ">=${clothConfigVersion}"
   }
 }

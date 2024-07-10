@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:potion",
+      "nbt": "{CustomPotionColor:14641637}"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/revitalization_potion"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/revitalization_potion"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/axolotl_murder",
+  "criteria": {
+    "obtained_revitalization_potion":{
+      "trigger": "minecraft:brewed_potion",
+      "conditions": {
+        "potion": "sculksickness:revitalization"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_revitalization_potion"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 10,
+    "function": ""
+  }
+}

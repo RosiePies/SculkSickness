@@ -1,7 +1,8 @@
 package com.rosiepies.sculksickness.mixin;
 
 import com.rosiepies.sculksickness.SculkSickness;
-import com.rosiepies.sculksickness.register.ModEffects;
+import com.rosiepies.sculksickness.register.EffectInit;
+import com.rosiepies.sculksickness.register.ParticleInit;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -33,15 +34,12 @@ public abstract class MobEffectInstanceMixin implements Comparable<MobEffectInst
 
     @Inject(at=@At("HEAD"), method = "tick", cancellable = true)
     public void tick(LivingEntity entity, Runnable onUpdate, CallbackInfoReturnable<Boolean> callback) {
-        if (duration <= 1 && effect == ModEffects.SCULK_SICKNESS.get()) {
-            if (entity.getServer() != null) {
-                SculkSickness.applyParticles(entity.getServer().getLevel(entity.level.dimension()), ParticleTypes.SCULK_CHARGE_POP, entity.position().add(new Vec3(0,1,0)), new Vec3(0.3, 0.4, 0.3), 0.025F, 1, false, (Collection<ServerPlayer>) entity.level.players());
-            }
+        if (duration <= 1 && effect == EffectInit.SCULK_SICKNESS.get()) {
             if (amplifier < 4) {
                 amplifier = amplifier + 1;
-                duration = ModEffects.getStageInterval(entity);
+                duration = EffectInit.getStageInterval(entity.getRandom());
                 if (entity.getServer() != null) {
-                    SculkSickness.applyParticles(entity.getServer().getLevel(entity.level.dimension()), ParticleTypes.SCULK_SOUL, entity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level.players());
+                    SculkSickness.applyParticles(entity.getServer().getLevel(entity.level.dimension()), ParticleInit.SCULK_EFFECT.get(), entity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level.players());
                 }
                 if (entity instanceof Player player) {
                     entity.level.playSound(null, entity.xo, entity.yo, entity.zo, SoundEvents.SCULK_CATALYST_BLOOM, entity.getSoundSource(), 5, 0.8F);
@@ -57,13 +55,12 @@ public abstract class MobEffectInstanceMixin implements Comparable<MobEffectInst
             }
             else {
                 while (entity.hurt(SculkSickness.SCULK_CORROSION, 10000)) {
-                    entity.skipDropExperience();
                     if (entity.getServer() != null) {
-                        SculkSickness.applyParticles(entity.getServer().getLevel(entity.level.dimension()), ParticleTypes.SCULK_SOUL, entity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level.players());
+                        SculkSickness.applyParticles(entity.getServer().getLevel(entity.level.dimension()), ParticleInit.SCULK_EFFECT.get(), entity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level.players());
                     }
                     if (!entity.isSilent()) {
-                        entity.level.playSound(null, entity.xo, entity.yo, entity.zo, SoundEvents.SCULK_SHRIEKER_SHRIEK, entity.getSoundSource(), 15, 1F);
-                        entity.playSound(SoundEvents.SCULK_SHRIEKER_SHRIEK, 15, 1F);
+                        entity.level.playSound(null, entity.xo, entity.yo, entity.zo, SoundEvents.SCULK_SHRIEKER_SHRIEK, entity.getSoundSource(), 1.5F, .5F);
+                        entity.playSound(SoundEvents.SCULK_SHRIEKER_SHRIEK, 1.5F, .5F);
                     }
                     SculkSickness.runFeatureFromString(entity,SculkSickness.MOD_ID,"sculk_patch_death");
                 }

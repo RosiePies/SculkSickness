@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:echo_shears"
+      }
+    },
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:echo_dust",
+              "minecraft:shears"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "recipe",
+      "item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:echo_shears"
+    ]
+  }
+}

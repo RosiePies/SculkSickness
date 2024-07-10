@@ -1,13 +1,15 @@
 package com.rosiepies.sculksickness;
 
 import com.rosiepies.sculksickness.config.ModConfig;
+import com.rosiepies.sculksickness.damagesource.SculkCorrosionDamageSource;
 import com.rosiepies.sculksickness.events.ModEvents;
 import com.rosiepies.sculksickness.register.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.VibrationParticleOption;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +17,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,6 +27,7 @@ import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 
@@ -33,20 +37,25 @@ public class SculkSickness {
     public static Logger getLogger() {
         return LOGGER;
     }
+
     public static ModConfig CONFIG;
 
     public static DamageSource SCULK_CORROSION = new SculkCorrosionDamageSource();
 
     public static void init() {
-        AutoConfig.register(ModConfig.class, PartitioningSerializer.wrap(Toml4jConfigSerializer::new));
+        AutoConfig.register(ModConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new));
         CONFIG = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
-        ModItems.init();
-        ModEffects.init();
+        ParticleInit.init();
+        ItemInit.init();
+        EffectInit.init();
         ModEvents.init();
+        BlockInit.init();
+        BlockEntityInit.init();
+        FeatureInit.init();
+        RecipeSerializerInit.init();
+        PotionInit.init();
     }
-
-
 
     public static int applyParticles(ServerLevel serverLevel, ParticleOptions particleOptions, Vec3 vec3, Vec3 vec32, float f, int i, boolean bl, Collection<ServerPlayer> collection) {
         int j = 0;
@@ -81,6 +90,23 @@ public class SculkSickness {
         // do whatever
     }
 
+    public static MobEffect getEffectFromStrings(LivingEntity entity, String[] idArray) {
+        // Throw this wherever appropriate, as long as you have access to the Entity object
+        if (entity.getLevel().isClientSide()) // This cannot be run on the client-side, only server-side.
+            return null;
+
+        for (String id : idArray) {
+            var registries = entity.getLevel().registryAccess();
+            var mobEffectRegistry = registries.registryOrThrow(Registry.MOB_EFFECT_REGISTRY);
+
+            var mobEffect = mobEffectRegistry.get(new ResourceLocation(id));
+            if (entity.getServer() != null && mobEffect != null) {
+                return mobEffect;
+            }
+        }
+        return null;
+        // do whatever
+    }
 
     public static void placeFeature(ServerLevel serverLevel, Holder<ConfiguredFeature<?,?>> holder, BlockPos blockPos) {
         ConfiguredFeature<?,?> configuredFeature = holder.value();

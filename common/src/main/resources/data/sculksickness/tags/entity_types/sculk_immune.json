@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#sculksickness:sculk_entities",
+    "minecraft:snow_golem",
+    "minecraft:iron_golem",
+    "minecraft:axolotl"
+  ]
+}

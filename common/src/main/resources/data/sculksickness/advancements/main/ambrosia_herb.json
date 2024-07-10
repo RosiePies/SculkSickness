@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:ambrosia_herb"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/ambrosia_herb"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/ambrosia_herb"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/vile_herb",
+  "criteria": {
+    "obtained_ambrosia_herb":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:ambrosia_herb"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_ambrosia_herb"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 10,
+    "function": ""
+  }
+}

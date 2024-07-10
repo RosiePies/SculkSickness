@@ -1,13 +1,14 @@
 package com.rosiepies.sculksickness.mixin;
 
 import com.rosiepies.sculksickness.SculkSickness;
-import com.rosiepies.sculksickness.register.ModEffects;
-import com.rosiepies.sculksickness.register.ModTags;
+import com.rosiepies.sculksickness.register.EffectInit;
+import com.rosiepies.sculksickness.register.TagInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,11 +33,11 @@ import java.util.Random;
 public abstract class SculkInfectMixin {
         @Inject(at=@At("HEAD"), method = "stepOn")
         public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity, CallbackInfo ci) {
-            if (entity instanceof LivingEntity livingEntity && blockState.is(ModTags.SCULK_BLOCKS)) {
-                if (!(livingEntity.getType().is(ModTags.SCULK_ENTITIES)) && !livingEntity.hasEffect(ModEffects.SCULK_SICKNESS.get())) {
+            if (entity instanceof LivingEntity livingEntity && (blockState.is(TagInit.SCULK_BLOCKS) && SculkSickness.CONFIG.common.general.stepInfect)) {
+                if (!(livingEntity.getType().is(TagInit.SCULK_IMMUNE)) && !livingEntity.hasEffect(EffectInit.SCULK_SICKNESS.get())) {
                     if (SculkSickness.CONFIG.common.general.randomInfectChance / 10 >= randomTick()) {
-                        SculkSickness.getLogger().info("Trying to Infect entity: " + livingEntity.getName().getString() + " of UUID: " + livingEntity.getUUID());
-                        while (livingEntity.addEffect(new MobEffectInstance(ModEffects.SCULK_SICKNESS.get(), ModEffects.getStageInterval(livingEntity), 0, false, false,true))) {
+                        if (SculkSickness.CONFIG.common.general.devLogs) SculkSickness.getLogger().info("Trying to Infect entity: " + livingEntity.getName().getString() + " of UUID: " + livingEntity.getUUID());
+                        while (livingEntity.addEffect(new MobEffectInstance(EffectInit.SCULK_SICKNESS.get(), EffectInit.getStageInterval(livingEntity.getRandom()), 0, false, SculkSickness.CONFIG.common.general.isEffectVisible,true))) {
                             if (level.getServer() != null) {
                                 SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, entity.position(), new Vec3(0.5,0,0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                             }
@@ -55,10 +56,10 @@ public abstract class SculkInfectMixin {
 
         @Inject(at=@At("TAIL"), method = "playerDestroy")
         public void playerDestroy(Level level, Player player, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity, ItemStack itemStack, CallbackInfo ci) {
-            if (blockState.is(ModTags.SCULK_BLOCKS)) {
-                if (SculkSickness.CONFIG.common.general.randomInfectChance >= randomTick() && !player.hasEffect(ModEffects.SCULK_SICKNESS.get())) {
-                    SculkSickness.getLogger().info("Trying to Infect entity: " + player.getName().getString() + " of UUID: " + player.getUUID());
-                    while (player.addEffect(new MobEffectInstance(ModEffects.SCULK_SICKNESS.get(), ModEffects.getStageInterval(player), 0, false, false,true))) {
+            if ((blockState.is(TagInit.SCULK_BLOCKS)) && SculkSickness.CONFIG.common.general.breakInfect) {
+                if (SculkSickness.CONFIG.common.general.randomInfectChance >= randomTick() && !player.hasEffect(EffectInit.SCULK_SICKNESS.get())) {
+                    if (SculkSickness.CONFIG.common.general.devLogs) SculkSickness.getLogger().info("Trying to Infect entity: " + player.getName().getString() + " of UUID: " + player.getUUID());
+                    while (player.addEffect(new MobEffectInstance(EffectInit.SCULK_SICKNESS.get(), EffectInit.getStageInterval(player.getRandom()), 0, false, SculkSickness.CONFIG.common.general.isEffectVisible,true))) {
                         if (level.getServer() != null) {
                             SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, player.position(), new Vec3(0.5,0,0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                         }

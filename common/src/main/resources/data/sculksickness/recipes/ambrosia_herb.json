@@ -1,0 +1,32 @@
+{
+  "group": "sculksickness",
+  "type": "sculksickness:pestling",
+
+  "ingredients": [
+    {
+      "item": "sculksickness:mortar_and_echo"
+    },
+    {
+      "item": "sculksickness:vile_herb"
+    },
+    {
+      "item": "sculksickness:axolotl_leg"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:spore_blossom"
+    },
+    {
+      "item": "minecraft:glow_lichen"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "sculksickness:ambrosia_herb"
+  }
+}

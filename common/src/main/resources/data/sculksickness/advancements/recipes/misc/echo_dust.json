@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:mortar_and_echo",
+              "minecraft:echo_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:echo_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:echo_dust"
+    ]
+  }
+}

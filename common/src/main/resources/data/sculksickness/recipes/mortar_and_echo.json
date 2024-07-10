@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:sculk"
+    },
+    "!": {
+      "item": "minecraft:echo_shard"
+    },
+    "+": {
+      "item": "sculksickness:mortar_and_pestle"
+    }
+  },
+  "pattern": [
+    "  !",
+    "#+#",
+    " # "
+  ],
+  "result": {
+    "item": "sculksickness:mortar_and_echo"
+  },
+  "show_notification": true
+}

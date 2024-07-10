@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:sickness_icon",
+      "nbt": "{Enchantments: [{lvl:1s,id:\"minecraft:mending\"}]}"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/diseased"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/diseased"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/root",
+  "criteria": {
+    "got_sick":{
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "sculksickness:sculk_sickness": {}
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_sick"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 15,
+    "function": ""
+  }
+}

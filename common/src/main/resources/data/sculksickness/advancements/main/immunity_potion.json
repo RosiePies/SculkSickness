@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:potion",
+      "nbt": "{CustomPotionColor:12729012}"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/sculk_immunity_potion"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/sculk_immunity_potion"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/ambrosia_herb",
+  "criteria": {
+    "obtained_sculk_immunity_potion":{
+      "trigger": "minecraft:brewed_potion",
+      "conditions": {
+        "potion": "sculksickness:sculk_immunity"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_sculk_immunity_potion"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 15,
+    "function": ""
+  }
+}

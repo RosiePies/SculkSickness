@@ -6,6 +6,17 @@ architectury {
     forge()
 }
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    forge {
+        convertAccessWideners = true
+        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+
+        mixinConfig "sculksickness-common.mixins.json"
+    }
+}
+
 configurations {
     common
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
@@ -26,10 +37,22 @@ dependencies {
 }
 
 processResources {
+    inputs.property "group", maven_group
+    inputs.property "version", project.version
+    inputs.property "architecturyVersion", architectury_version
+    inputs.property "minecraftVersion", minecraft_version
+    inputs.property "forgeMajorVersion", forge_major_version
+    inputs.property "clothConfigVersion", cloth_config_version
+
     inputs.property "version", project.version
 
     filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
+        expand "group": maven_group,
+                "version": version,
+                "architecturyVersion": architectury_version,
+                "minecraftVersion": minecraft_version,
+                "forgeMajorVersion": forge_major_version,
+                "clothConfigVersion": cloth_config_version
     }
 }
 

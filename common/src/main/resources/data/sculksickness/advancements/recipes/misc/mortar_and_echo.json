@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:mortar_and_echo"
+      }
+    },
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:echo_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe2": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:mortar_and_pestle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "recipe",
+      "item",
+      "recipe2"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:mortar_and_echo"
+    ]
+  }
+}

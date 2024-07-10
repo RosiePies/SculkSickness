@@ -42,27 +42,35 @@ logoFile = "icon.png" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
-
+A forbidden sickness is growing in the deep dark, stay away or face the consequences...
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.sculksickness]] #optional
-# the modid of the dependency
-modId = "forge" #mandatory
-# Does this dependency have to exist - if not, ordering below must be specified
-mandatory = true #mandatory
-# The version range of the dependency
-versionRange = "[43,)" #mandatory
-# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-ordering = "NONE"
-# Side this dependency is applied on - BOTH, CLIENT or SERVER
-side = "BOTH"
 # Here's another dependency
+[[dependencies.sculksickness]]
+modId = "forge"
+mandatory = true
+versionRange = "[${forgeMajorVersion},)"
+ordering = "NONE"
+side = "BOTH"
+
 [[dependencies.sculksickness]]
 modId = "minecraft"
 mandatory = true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange = "[1.19.2,1.20)"
+versionRange = "[${minecraftVersion},)"
 ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.sculksickness]]
+modId = "architectury"
+mandatory = true
+versionRange = "[${architecturyVersion},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.sculksickness]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[${clothConfigVersion},)"
+ordering = "AFTER"
 side = "BOTH"
 
 [[mixins]]

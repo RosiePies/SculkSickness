@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:echo_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:echo_dust_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:echo_dust_block",
+      "sculksickness:echo_dust_from_block"
+    ]
+  }
+}

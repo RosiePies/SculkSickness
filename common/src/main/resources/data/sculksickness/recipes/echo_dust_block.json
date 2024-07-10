@@ -1,0 +1,38 @@
+{
+  "group": "sculksickness",
+  "type": "minecraft:crafting_shapeless",
+
+  "ingredients": [
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "sculksickness:echo_dust_block"
+  }
+}

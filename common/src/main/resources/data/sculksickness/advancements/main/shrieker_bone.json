@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:shrieker_bone"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/shrieker_bone"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/shrieker_bone"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/echo_shears",
+  "criteria": {
+    "obtained_shrieker_bone":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:shrieker_bone"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_shrieker_bone"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 5,
+    "function": ""
+  }
+}

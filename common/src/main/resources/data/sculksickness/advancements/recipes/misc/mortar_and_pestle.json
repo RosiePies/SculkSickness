@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:mortar_and_pestle"
+      }
+    },
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cobbled_deepslate"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "recipe",
+      "item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:mortar_and_pestle"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:mortar_and_echo",
+              "sculksickness:echo_dust",
+              "sculksickness:shrieker_bone",
+              "sculksickness:bloom_fruit"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:vile_herb"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:vile_herb"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "sculksickness:bloom_fruit"
+    },
+    "title": {
+      "translate": "advancement.sculksickness.diseased.title/bloom_fruit"
+    },
+    "description": {
+      "translate": "advancement.sculksickness.diseased.description/bloom_fruit"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "sculksickness:textures/gui/advancements/backgrounds/sculk.png"
+  },
+  "parent": "sculksickness:main/echo_shears",
+  "criteria": {
+    "obtained_bloom_fruit":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:bloom_fruit"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtained_bloom_fruit"
+    ]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 5,
+    "function": ""
+  }
+}

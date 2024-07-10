@@ -1,0 +1,17 @@
+{
+  "group": "sculksickness",
+  "type": "sculksickness:pestling",
+
+  "ingredients": [
+    {
+      "item": "sculksickness:mortar_and_echo"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "sculksickness:echo_dust"
+  }
+}

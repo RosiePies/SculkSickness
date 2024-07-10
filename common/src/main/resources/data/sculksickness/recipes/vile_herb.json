@@ -1,0 +1,29 @@
+{
+  "group": "sculksickness",
+  "type": "sculksickness:pestling",
+
+  "ingredients": [
+    {
+      "item": "sculksickness:mortar_and_echo"
+    },
+    {
+      "item": "sculksickness:echo_dust"
+    },
+    {
+      "item": "sculksickness:bloom_fruit"
+    },
+    {
+      "item": "sculksickness:shrieker_bone"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "sculksickness:vile_herb"
+  }
+}

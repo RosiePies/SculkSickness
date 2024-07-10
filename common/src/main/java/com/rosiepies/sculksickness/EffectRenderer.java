@@ -1,7 +1,7 @@
 package com.rosiepies.sculksickness;
 
 import com.google.gson.JsonSyntaxException;
-import com.rosiepies.sculksickness.register.ModEffects;
+import com.rosiepies.sculksickness.register.EffectInit;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.PostChain;
@@ -13,12 +13,14 @@ import java.io.IOException;
 
 public class EffectRenderer {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final ResourceLocation SCULKSICKNESS_AFTER = new ResourceLocation(SculkSickness.MOD_ID, "shaders/post/sculksickness_after.json");
+    private static final ResourceLocation SCULKSICKNESS_ACTIVE = new ResourceLocation(SculkSickness.MOD_ID, "shaders/post/sculksickness_active.json");
     private static final ResourceLocation SCULKSICKNESS_BEFORE = new ResourceLocation(SculkSickness.MOD_ID, "shaders/post/sculksickness_before.json");
+    private static final ResourceLocation SCULKSICKNESS_DORMANT = new ResourceLocation(SculkSickness.MOD_ID, "shaders/post/sculksickness_dormant.json");
 
 
-    private static PostChain sculkSicknessAfterShader;
+    private static PostChain sculkSicknessActiveShader;
     private static PostChain sculkSicknessBeforeShader;
+    private static PostChain sculkSicknessDormantShader;
 
     private static int lastWidth = 0;
     private static int lastHeight = 0;
@@ -30,10 +32,12 @@ public class EffectRenderer {
             makeColorShaders();
 
             PostChain activeShader = null;
-            if (SculkSickness.compareAmplifier(player.getEffect(ModEffects.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 1)) {
-                activeShader = sculkSicknessAfterShader;
-            } else if (SculkSickness.compareAmplifier(player.getEffect(ModEffects.SCULK_SICKNESS.get()),0)) {
+            if (SculkSickness.compareAmplifier(player.getEffect(EffectInit.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 1)) {
+                activeShader = sculkSicknessActiveShader;
+            } else if (SculkSickness.compareAmplifier(player.getEffect(EffectInit.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 2)) {
                 activeShader = sculkSicknessBeforeShader;
+            } else if (SculkSickness.compareAmplifier(player.getEffect(EffectInit.SCULK_SICKNESS.get()),0)) {
+                activeShader = sculkSicknessDormantShader;
             }
 
             if (activeShader != null) {
@@ -62,11 +66,14 @@ public class EffectRenderer {
     }
 
     private static void makeColorShaders() {
-        if (sculkSicknessAfterShader == null) {
-            sculkSicknessAfterShader = createShaderGroup(SCULKSICKNESS_AFTER);
+        if (sculkSicknessActiveShader == null) {
+            sculkSicknessActiveShader = createShaderGroup(SCULKSICKNESS_ACTIVE);
         }
         if (sculkSicknessBeforeShader == null) {
             sculkSicknessBeforeShader = createShaderGroup(SCULKSICKNESS_BEFORE);
+        }
+        if (sculkSicknessDormantShader == null) {
+            sculkSicknessDormantShader = createShaderGroup(SCULKSICKNESS_DORMANT);
         }
     }
 

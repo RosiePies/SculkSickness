@@ -7,6 +7,10 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+}
+
 configurations {
     common {
         canBeResolved = true
@@ -32,10 +36,22 @@ dependencies {
 }
 
 processResources {
+    inputs.property "group", maven_group
+    inputs.property "version", project.version
+    inputs.property "architecturyVersion", architectury_version
+    inputs.property "minecraftVersion", minecraft_version
+    inputs.property "forgeMajorVersion", forge_major_version
+    inputs.property "clothConfigVersion", cloth_config_version
+
     inputs.property "version", project.version
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version
+        expand "group": maven_group,
+                "version": version,
+                "architecturyVersion": architectury_version,
+                "minecraftVersion": minecraft_version,
+                "forgeMajorVersion": forge_major_version,
+                "clothConfigVersion": cloth_config_version
     }
 
     def environment = System.getenv("ENVIRONMENT");
