@@ -19,6 +19,6 @@ public class SculkSicknessForgeClient {
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         SculkSicknessClient.initParticles(
-                (particleType, spriteSetFunction) -> event.register(particleType, (ParticleEngine.SpriteParticleRegistration) spriteSetFunction::apply));
+                (particleType, spriteSetFunction) -> event.registerSpriteSet(particleType, (ParticleEngine.SpriteParticleRegistration) spriteSetFunction::apply));
     }
 }

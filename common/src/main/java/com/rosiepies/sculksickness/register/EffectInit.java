@@ -7,6 +7,7 @@ import com.rosiepies.sculksickness.effects.SculkSicknessEffect;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
@@ -17,7 +18,7 @@ import java.util.logging.Level;
 
 @SuppressWarnings("unused")
 public class EffectInit {
-    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(SculkSickness.MOD_ID, Registry.MOB_EFFECT_REGISTRY);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(SculkSickness.MOD_ID, Registries.MOB_EFFECT);
 
     public static final RegistrySupplier<MobEffect> SCULK_SICKNESS = EFFECTS.register("sculk_sickness", SculkSicknessEffect::new);
     public static final RegistrySupplier<MobEffect> IMMUNITY = EFFECTS.register("sculk_immunity", ImmunityEffect::new);

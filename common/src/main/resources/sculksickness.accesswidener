@@ -9,3 +9,5 @@ accessible field net/minecraft/world/item/alchemy/PotionBrewing POTION_MIXES Lja
 accessible field net/minecraft/world/item/alchemy/PotionBrewing CONTAINER_MIXES Ljava/util/List;
 accessible method net/minecraft/world/item/alchemy/PotionBrewing addMix (Lnet/minecraft/world/item/alchemy/Potion;Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/alchemy/Potion;)V
 accessible class net/minecraft/world/item/alchemy/PotionBrewing$Mix
+
+accessible method net/minecraft/world/damagesource/DamageSources source (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/world/damagesource/DamageSource;)V

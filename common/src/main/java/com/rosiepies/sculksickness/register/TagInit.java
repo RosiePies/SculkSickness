@@ -3,6 +3,7 @@ package com.rosiepies.sculksickness.register;
 import com.rosiepies.sculksickness.SculkSickness;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -13,9 +14,11 @@ import java.util.Optional;
 
 @SuppressWarnings("SameParameterValue")
 public class TagInit {
-    public static final TagKey<Block> SCULK_BLOCKS = create(Registry.BLOCK_REGISTRY,sculkSicknessLoc("sculk_blocks"));
-    public static final TagKey<EntityType<?>> SCULK_IMMUNE = create(Registry.ENTITY_TYPE_REGISTRY,sculkSicknessLoc("sculk_immune"));
-    public static final TagKey<EntityType<?>> SCULK_ENTITIES = create(Registry.ENTITY_TYPE_REGISTRY,sculkSicknessLoc("sculk_entities"));
+    public static final TagKey<Block> SCULK_BLOCKS = create(Registries.BLOCK,sculkSicknessLoc("sculk_blocks"));
+    public static final TagKey<EntityType<?>> SCULK_IMMUNE = create(Registries.ENTITY_TYPE,sculkSicknessLoc("sculk_immune"));
+    public static final TagKey<EntityType<?>> SCULK_ENTITIES = create(Registries.ENTITY_TYPE,sculkSicknessLoc("sculk_entities"));
+    public static final TagKey<Block> MINEABLE_WITH_ECHO_SHEARS = create(Registries.BLOCK,sculkSicknessLoc("mineable/echo_shears"));
+
 
     public static TagKey<?> getTagOrNull(TagKey<?> tagKey) {
         try {

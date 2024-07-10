@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:echo_upgrade_smithing_template"
+            ]
+          }
+        ]
+      }
+    },
+    "recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sculksickness:echo_upgrade_smithing_template"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item",
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:echo_upgrade_smithing_template"
+    ]
+  }
+}
