@@ -17,6 +17,14 @@
   "block.sculksickness.sculk_blossom": "§3Sculk Blossom",
   "block.sculksickness.echo_dust_block": "§3Block of Echo Dust",
 
+  "category.sculksickness.sculk_sickness_tab": "§3§lSculk Sickness",
+
+  "upgrade.sculksickness.echo_upgrade": "Echo Upgrade",
+  "item.sculksickness.smithing_template.echo_upgrade.applies_to": "Shears",
+  "item.sculksickness.smithing_template.echo_upgrade.ingredients": "Echo Shard, Dust, or Block",
+  "item.sculksickness.smithing_template.echo_upgrade.base_slot_description": "Add shears",
+  "item.sculksickness.smithing_template.echo_upgrade.additions_slot_description": "Add Echo Shard, Dust, or Block",
+
   "item.sculksickness.mortar_and_pestle": "Mortar & Pestle",
   "item.sculksickness.mortar_and_echo": "Mortar & §3Echo",
   "item.sculksickness.ambrosia_herb": "Ambrosia Herb",

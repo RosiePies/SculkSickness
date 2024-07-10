@@ -23,12 +23,11 @@ public abstract class EntityRenderMixin<T extends Entity> {
     public void shouldRender(T entity, Frustum frustum, double d, double e, double f, CallbackInfoReturnable<Boolean> cir) {
         LocalPlayer player = Minecraft.getInstance().player;
         if (entity instanceof LivingEntity livingEntity &&  player != null) {
-            boolean isEntityStill = livingEntity.getDeltaMovement().x <= 0 && livingEntity.isOnGround() && livingEntity.getDeltaMovement().z <= 0;
+            boolean isEntityStill = livingEntity.getDeltaMovement().x <= 0 && livingEntity.onGround() && livingEntity.getDeltaMovement().z <= 0;
             boolean isEffectAmplifier = (SculkSickness.compareAmplifier(player.getEffect(EffectInit.SCULK_SICKNESS.get()),SculkSickness.CONFIG.common.darknessSymptom.applyDarknessAtStage - 1));
             if (isEffectAmplifier && ((isEntityStill && !entity.isOnFire() && !entity.isFreezing()) || entity.dampensVibrations())) {
                 cir.setReturnValue(false);
             } else if (player.distanceTo(entity) <= 96) {
-                SculkSickness.runVibration(entity,player.getEyePosition(),3);
                 cir.setReturnValue(true);
             }
         }

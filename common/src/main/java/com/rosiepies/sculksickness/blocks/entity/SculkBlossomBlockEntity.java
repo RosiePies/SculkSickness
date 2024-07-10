@@ -136,7 +136,7 @@ public class SculkBlossomBlockEntity extends BlockEntity implements TickableBloc
                             SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, livingEntity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                         }
                         if (!livingEntity.isSilent()) {
-                            livingEntity.level.playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 1.75F, 0.8F);
+                            livingEntity.level().playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 1.75F, 0.8F);
                             livingEntity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 1.75F, 0.8F);
                         }
                         if (livingEntity instanceof Player player) {

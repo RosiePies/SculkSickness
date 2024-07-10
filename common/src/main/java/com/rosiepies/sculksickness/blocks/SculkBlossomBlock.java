@@ -8,7 +8,9 @@ import com.rosiepies.sculksickness.register.ParticleInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -40,6 +42,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SculkBlossomBlock extends SpecialBlossomBlock implements EntityBlock, SimpleWaterloggedBlock {
@@ -98,19 +101,16 @@ public class SculkBlossomBlock extends SpecialBlossomBlock implements EntityBloc
 
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
+        if (SculkSickness.CONFIG.common.general.devLogs) SculkSickness.getLogger().info("Triggering spawnAfterBreak");
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl) {
-            this.tryDropExperience(serverLevel, blockPos, itemStack, ConstantInt.of(5));
-            if (blockState.getValue(CAN_SPEW)) {
-                applySpores(serverLevel,blockPos);
-            }
+
+        if (SculkSickness.CONFIG.common.general.devLogs) SculkSickness.getLogger().info("Trying to drop experience.");
+        this.tryDropExperience(serverLevel, blockPos, itemStack, ConstantInt.of(5));
+        if (blockState.getValue(CAN_SPEW)) {
+            applySpores(serverLevel,blockPos);
         }
     }
 
-    @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        return super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
-    }
     public BlockState setDoesAge(BlockState blockState, boolean bool) {
         return blockState.setValue(DOES_AGE, bool);
     }
@@ -134,7 +134,16 @@ public class SculkBlossomBlock extends SpecialBlossomBlock implements EntityBloc
 
         if (!list2.isEmpty()) {
             for (LivingEntity livingEntity : list2) {
-                livingEntity.addEffect(new MobEffectInstance(EffectInit.SCULK_SICKNESS.get(), EffectInit.getStageInterval(livingEntity.getRandom()), 0, false, SculkSickness.CONFIG.common.general.isEffectVisible,true));
+                while (livingEntity.addEffect(new MobEffectInstance(EffectInit.SCULK_SICKNESS.get(), EffectInit.getStageInterval(livingEntity.getRandom()), 0, false, false, true))) {
+                    SculkSickness.applyParticles(serverLevel, ParticleTypes.SCULK_SOUL, livingEntity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, serverLevel.players());
+                    if (!livingEntity.isSilent()) {
+                        livingEntity.level().playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 1.75F, 0.8F);
+                        livingEntity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 1.75F, 0.8F);
+                    }
+                    if (livingEntity instanceof Player player) {
+                        player.displayClientMessage(Component.translatable("text.sculksickness.infected_by.sculk_blossom"), true);
+                    }
+                }
             }
         }
     }

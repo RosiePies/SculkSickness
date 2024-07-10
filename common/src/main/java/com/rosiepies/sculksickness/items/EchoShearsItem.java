@@ -24,55 +24,12 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.SculkBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EchoShearsItem extends ShearsItem {
+public class EchoShearsItem extends DiggerShearsItem {
 
-    private final Tier tier;
-
-    public EchoShearsItem(Tier tier, Properties properties) {
-        super(properties);
-        this.tier = tier;
-    }
-    public Tier getTier() {
-        return this.tier;
-    }
-    @Override
-    public boolean mineBlock(ItemStack itemStack, Level level, BlockState blockState, BlockPos blockPos, LivingEntity livingEntity) {
-        if (!level.isClientSide && !blockState.is(BlockTags.FIRE)) {
-            itemStack.hurtAndBreak(1, livingEntity, (livingEntityx) -> {
-                livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
-        }
-
-        return blockState.is(BlockTags.LEAVES)
-                || blockState.is(Blocks.COBWEB)
-                || blockState.is(Blocks.GRASS)
-                || blockState.is(Blocks.FERN)
-                || blockState.is(Blocks.DEAD_BUSH)
-                || blockState.is(Blocks.HANGING_ROOTS)
-                || blockState.is(Blocks.VINE)
-                || blockState.is(Blocks.TRIPWIRE)
-                || blockState.is(BlockTags.WOOL)
-                || blockState.is(TagInit.SCULK_BLOCKS)
-                || super.mineBlock(itemStack, level, blockState, blockPos, livingEntity);
+    public EchoShearsItem(float attackDamage, float attackSpeed, Tier tier, Properties properties) {
+        super(attackDamage, attackSpeed, tier, TagInit.MINEABLE_WITH_ECHO_SHEARS, properties);
     }
 
-    @Override
-    public boolean isCorrectToolForDrops(BlockState blockState) {
-        int i = this.getTier().getLevel();
-        if (i < 3 && blockState.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-            return false;
-        }
-        if (i < 2 && blockState.is(BlockTags.NEEDS_IRON_TOOL)) {
-            return false;
-        }
-        if (i < 1 && blockState.is(BlockTags.NEEDS_STONE_TOOL)) {
-            return false;
-        }
-        return blockState.is(Blocks.COBWEB)
-                || blockState.is(Blocks.REDSTONE_WIRE)
-                || blockState.is(Blocks.TRIPWIRE)
-                || blockState.is(TagInit.SCULK_BLOCKS);
-    }
     @Override
     public float getDestroySpeed(ItemStack itemStack, BlockState blockState) {
         if (!blockState.is(Blocks.COBWEB) && !blockState.is(BlockTags.LEAVES)) {

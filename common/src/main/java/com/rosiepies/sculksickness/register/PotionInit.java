@@ -4,13 +4,14 @@ import com.rosiepies.sculksickness.SculkSickness;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 
 public class PotionInit {
-    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(SculkSickness.MOD_ID, Registry.POTION_REGISTRY);
+    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(SculkSickness.MOD_ID, Registries.POTION);
 
     public static final RegistrySupplier<Potion> RESONANT_DEEP = POTIONS.register("resonant_deep",
             () -> new Potion(

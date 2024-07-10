@@ -11,10 +11,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
@@ -25,7 +22,7 @@ public class HerbItem extends Item {
     private final boolean isAmbrosia;
     private final boolean isVile;
     public HerbItem(Properties properties, boolean isAmbrosia) {
-        super(properties.tab(CreativeModeTab.TAB_FOOD));
+        super(properties.arch$tab(CreativeModeTabs.FOOD_AND_DRINKS));
         this.isAmbrosia = isAmbrosia;
         this.isVile = !this.isAmbrosia;
     }
@@ -49,7 +46,7 @@ public class HerbItem extends Item {
                     SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, livingEntity.position(), new Vec3(0.5,0,0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                 }
                 if (!livingEntity.isSilent()) {
-                    livingEntity.level.playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 5, 0.8F);
+                    livingEntity.level().playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 5, 0.8F);
                     livingEntity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 5, 0.8F);
                 }
                 if (livingEntity instanceof Player player) {

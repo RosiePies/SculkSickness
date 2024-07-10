@@ -42,7 +42,7 @@ public abstract class SculkInfectMixin {
                                 SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, entity.position(), new Vec3(0.5,0,0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                             }
                             if (!livingEntity.isSilent()) {
-                                livingEntity.level.playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 5, 0.8F);
+                                livingEntity.level().playSound(null, livingEntity.xo, livingEntity.yo, livingEntity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 5, 0.8F);
                                 livingEntity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 5, 0.8F);
                             }
                             if (livingEntity instanceof Player player) {
@@ -64,7 +64,7 @@ public abstract class SculkInfectMixin {
                             SculkSickness.applyParticles((level.getServer()).getLevel(level.dimension()), ParticleTypes.SCULK_SOUL, player.position(), new Vec3(0.5,0,0.5), 0.05F, 50, false, (Collection<ServerPlayer>) level.players());
                         }
                         if (!player.isSilent()) {
-                            player.level.playSound(null, player.xo, player.yo, player.zo, SoundEvents.SCULK_CATALYST_BLOOM, player.getSoundSource(), 5, 0.8F);
+                            player.level().playSound(null, player.xo, player.yo, player.zo, SoundEvents.SCULK_CATALYST_BLOOM, player.getSoundSource(), 5, 0.8F);
                             player.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 5, 0.8F);
                         }
                         player.displayClientMessage(Component.translatable("text.sculksickness.infected_by.break_sculk"), true);
