@@ -16,6 +16,7 @@ public class TagInit {
     public static final TagKey<Block> SCULK_BLOCKS = create(Registry.BLOCK_REGISTRY,sculkSicknessLoc("sculk_blocks"));
     public static final TagKey<EntityType<?>> SCULK_IMMUNE = create(Registry.ENTITY_TYPE_REGISTRY,sculkSicknessLoc("sculk_immune"));
     public static final TagKey<EntityType<?>> SCULK_ENTITIES = create(Registry.ENTITY_TYPE_REGISTRY,sculkSicknessLoc("sculk_entities"));
+    public static final TagKey<EntityType<?>> MINEABLE_WITH_ECHO_SHEARS = create(Registry.BLOCK_REGISTRY,sculkSicknessLoc("mineable/echo_shears"));
 
     public static TagKey<?> getTagOrNull(TagKey<?> tagKey) {
         try {
