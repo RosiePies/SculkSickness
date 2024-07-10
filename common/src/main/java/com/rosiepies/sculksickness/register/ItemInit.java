@@ -68,7 +68,7 @@ public class ItemInit {
                     .alwaysEat()
                     .build()),true));
 
-    public static final RegistrySupplier<Item> ECHO_SHEARS = ITEMS.register("echo_shears",() -> new EchoShearsItem(Tiers.NETHERITE,new Item.Properties()
+    public static final RegistrySupplier<Item> ECHO_SHEARS = ITEMS.register("echo_shears",() -> new EchoShearsItem(-4,0,Tiers.NETHERITE,new Item.Properties()
             .tab(CreativeModeTab.TAB_TOOLS)
             .durability(714)));
 
