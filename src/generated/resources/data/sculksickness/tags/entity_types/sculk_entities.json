@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:warden",
+    {
+      "id": "#deeperdarker:sculk",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "sculksickness:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ancient_city"
+    },
+    {
+      "chance": 2.5,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "sculksickness:bloom_fruit",
+  "max": 1,
+  "min": 1
+}

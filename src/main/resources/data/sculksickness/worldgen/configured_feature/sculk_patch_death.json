@@ -1,0 +1,13 @@
+{
+  "type": "sculksickness:blossom_patch",
+  "config": {
+    "charge_count": 2,
+    "amount_per_charge": 4,
+    "spread_attempts": 64,
+    "growth_rounds": 2,
+    "spread_rounds": 1,
+    "extra_rare_growths": 0,
+    "main_growth_chance": 1,
+    "catalyst_chance": 0
+  }
+}

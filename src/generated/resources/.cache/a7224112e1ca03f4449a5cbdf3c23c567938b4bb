@@ -1,0 +1,6 @@
+// 1.20.1	2024-12-14T16:23:18.0471068	Global Loot Modifiers : sculksickness
+303ff8320a6430d73fbbf57ff044e92c8a6d8459 data/forge/loot_modifiers/global_loot_modifiers.json
+db59d865724009d190196d56bf51126c38fe3068 data/sculksickness/loot_modifiers/ambrosia_herb_from_ancient_city.json
+3f74b69e790004fd3f3b9dbeb498a92e156834a0 data/sculksickness/loot_modifiers/bloom_fruit_from_ancient_city.json
+f6fcd1a6c69020935af1bf63721e1376cb08a7ad data/sculksickness/loot_modifiers/shrieker_bone_from_ancient_city.json
+717691ef9228e0b62e389d529af7012dfd3ffe17 data/sculksickness/loot_modifiers/vile_herb_from_ancient_city.json

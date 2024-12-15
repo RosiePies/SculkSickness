@@ -1,0 +1,16 @@
+{
+  "type": "sculksickness:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ancient_city"
+    },
+    {
+      "chance": 1.5,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "sculksickness:shrieker_bone",
+  "max": 1,
+  "min": 1
+}

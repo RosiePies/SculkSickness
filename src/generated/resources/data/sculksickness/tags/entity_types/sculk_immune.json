@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#sculksickness:sculk_entities",
+    {
+      "id": "#sculkhorde:infested_block",
+      "required": false
+    }
+  ]
+}

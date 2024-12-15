@@ -1,0 +1,16 @@
+{
+  "type": "sculksickness:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ancient_city"
+    },
+    {
+      "chance": 1.0,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "sculksickness:vile_herb",
+  "max": 1,
+  "min": 1
+}

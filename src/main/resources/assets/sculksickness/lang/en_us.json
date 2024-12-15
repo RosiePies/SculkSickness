@@ -1,0 +1,58 @@
+{
+  "effect.sculksickness.sculk_sickness": "§3§lSculk Sickness",
+  "effect.sculksickness.revitalization": "Revitalization",
+  "effect.sculksickness.sculk_immunity": "§5§lSculk Immunity",
+
+  "death.attack.sculk_corrosion": "%1$s was dissolved by the §3§lSculk Sickness",
+
+  "text.sculksickness.sickness_stage_warning": "§3§lSickness sets in..§r Stage: §3%d",
+  "text.sculksickness.infected_by.step_on_sculk": "§3§lStrange tendrils§r grasp your legs... Stage: §31",
+  "text.sculksickness.infected_by.break_sculk": "§3§lStrange hums§r start to irradiate your ears... Stage: §31",
+  "text.sculksickness.infected_by.entity_attack": "As the creature attacks, a §3§lstrange feeling§r starts overcome you... Stage: §31",
+  "text.sculksickness.infected_by.sculk_blossom": "§3§lStrange spores§r seemingly dissolve into your skin... Stage: §31",
+  "text.sculksickness.infected_by.eat_vile_herb": "As you eat the §3§lVile Herb§r, nausea sets in... Stage: §31",
+  "text.sculksickness.cured_by.eat_ambrosia_herb": "As you eat the §5§lAmbrosia Herb§r, a sense of calmness overtakes you... You are §5cured",
+  "text.sculksickness.cured_by.effect": "As you start to feel the effects of the §5§lpotion§r, a sense of calmness overtakes you... You are §5cured",
+
+  "block.sculksickness.sculk_blossom": "§3Sculk Blossom",
+
+  "category.sculksickness.sculk_sickness_tab": "§3§lSculk Sickness",
+
+  "item.sculksickness.ambrosia_herb": "Ambrosia Herb",
+  "item.sculksickness.vile_herb": "§3Vile Herb",
+  "item.sculksickness.bloom_fruit": "§3Bloom Fruit",
+  "item.sculksickness.shrieker_bone": "§3Shrieker Bone",
+
+  "item.minecraft.potion.effect.sculk_immunity": "Potion of §5§lSculk Immunity",
+  "item.minecraft.potion.effect.sculk_immunity_long": "Potion of §5§lSculk Immunity",
+  "item.minecraft.splash_potion.effect.sculk_immunity": "Splash Potion of §5§lSculk Immunity",
+  "item.minecraft.splash_potion.effect.sculk_immunity_long": "Splash Potion of §5§lSculk Immunity",
+  "item.minecraft.lingering_potion.effect.sculk_immunity": "Lingering Potion of §5§lSculk Immunity",
+  "item.minecraft.lingering_potion.effect.sculk_immunity_long": "Lingering Potion of §5§lSculk Immunity",
+  "item.minecraft.tipped_arrow.effect.sculk_immunity": "Arrow of §5§lSculk Immunity",
+  "item.minecraft.tipped_arrow.effect.sculk_immunity_long": "Arrow of §5§lSculk Immunity",
+  "item.minecraft.potion.effect.sculk_sickness": "Potion of §3§lSculk Sickness",
+  "item.minecraft.splash_potion.effect.sculk_sickness": "Splash Potion of §3§lSculk Sickness",
+  "item.minecraft.lingering_potion.effect.sculk_sickness": "Lingering Potion of §3§lSculk Sickness",
+  "item.minecraft.tipped_arrow.effect.sculk_sickness": "Arrow of §3§lSculk Sickness",
+
+  "advancement.sculksickness.diseased.title/root": "Enlightenment",
+  "advancement.sculksickness.diseased.description/root": "Find the source of the Sculk Sickness.. The Deep Dark.",
+  "advancement.sculksickness.diseased.title/diseased": "§3Diseased",
+  "advancement.sculksickness.diseased.description/diseased": "Become infected with the mysterious Sculk Sickness. Watch out, as it acts fast.",
+  "advancement.sculksickness.diseased.title/shrieker_bone": "§3Echoing Calcium",
+  "advancement.sculksickness.diseased.description/shrieker_bone": "Obtain Shrieker Bones.",
+  "advancement.sculksickness.diseased.title/bloom_fruit": "§3Fruit of the Bloom",
+  "advancement.sculksickness.diseased.description/bloom_fruit": "Obtain Bloom Fruits, a curious food item.",
+
+  "advancement.sculksickness.diseased.title/yuck": "§3§oYuck!",
+  "advancement.sculksickness.diseased.description/yuck": "Eat a Vile Herb...",
+  "advancement.sculksickness.diseased.title/sickness_potion": "§3Chemical Warfare",
+  "advancement.sculksickness.diseased.description/sickness_potion": "Brew a Sculk Sickness potion.",
+
+  "advancement.sculksickness.diseased.title/ambrosia_herb": "§5The Cure!",
+  "advancement.sculksickness.diseased.title/sculk_immunity_potion": "§5Immunity at Last",
+  "advancement.sculksickness.diseased.description/sculk_immunity_potion": "Brew a Sculk Immunity potion from the Ambrosia Herb.",
+
+  "creativetab.sculksickness.sculk_sickness_tab": "Sculk Sickness"
+}

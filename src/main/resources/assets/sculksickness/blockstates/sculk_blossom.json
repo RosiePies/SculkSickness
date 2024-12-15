@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "blossom_age=0": {
+      "model": "sculksickness:block/sculk_blossom_0"
+    },
+    "blossom_age=1": {
+      "model": "sculksickness:block/sculk_blossom_1"
+    },
+    "blossom_age=2": {
+      "model": "sculksickness:block/sculk_blossom_2"
+    },
+    "blossom_age=3": {
+      "model": "sculksickness:block/sculk_blossom_3"
+    }
+  }
+}

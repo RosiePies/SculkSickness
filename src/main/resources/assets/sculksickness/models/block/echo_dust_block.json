@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "sculksickness:block/echo_dust_block"
+  }
+}

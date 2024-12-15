@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bloom_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:bloom_fruit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shrieker_bone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sculksickness:shrieker_bone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "sculksickness:vile_herb"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bloom_fruit",
+      "has_shrieker_bone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "sculksickness:vile_herb"
+    ]
+  },
+  "sends_telemetry_event": false
+}

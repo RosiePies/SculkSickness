@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "sculksickness:shrieker_bone"
+    },
+    {
+      "item": "sculksickness:shrieker_bone"
+    },
+    {
+      "item": "sculksickness:bloom_fruit"
+    },
+    {
+      "item": "sculksickness:bloom_fruit"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "sculksickness:vile_herb"
+  }
+}
