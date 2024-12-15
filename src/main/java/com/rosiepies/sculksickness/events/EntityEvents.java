@@ -69,14 +69,14 @@ public abstract class EntityEvents {
                 && SculkSickness.CONFIG.common.general.hitInfect) {
             if (!livingEntity.getType().is(SSTagInit.SCULK_IMMUNE) && !livingEntity.hasEffect(SSEffectInit.SCULK_SICKNESS.get()) && attackerEntity.hasEffect(SSEffectInit.SCULK_SICKNESS.get()) || attackerEntity.getType().is(SSTagInit.SCULK_ENTITIES) && SculkSickness.CONFIG.common.general.randomInfectChance >= SSEffectInit.randomTick()) {
                 while (livingEntity.addEffect(new MobEffectInstance(SSEffectInit.SCULK_SICKNESS.get(), SSEffectInit.getStageInterval(livingEntity.getRandom()), 0, false, SculkSickness.CONFIG.common.general.isEffectVisible, true))) {
-                    if (entity.level().getServer() != null) {
-                        SculkSickness.applyParticles((ServerLevel) entity.level(), ParticleTypes.SCULK_SOUL, entity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level().players());
+                    if (livingEntity.level().getServer() != null) {
+                        SculkSickness.applyParticles((ServerLevel) livingEntity.level(), ParticleTypes.SCULK_SOUL, livingEntity.position(), new Vec3(0.5, 0, 0.5), 0.05F, 50, false, (Collection<ServerPlayer>) entity.level().players());
                     }
-                    if (!entity.isSilent()) {
-                        entity.level().playSound(null, entity.xo, entity.yo, entity.zo, SoundEvents.SCULK_CATALYST_BLOOM, entity.getSoundSource(), 5, 0.8F);
-                        entity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 5, 0.8F);
+                    if (!livingEntity.isSilent()) {
+                        livingEntity.level().playSound(null, entity.xo, entity.yo, entity.zo, SoundEvents.SCULK_CATALYST_BLOOM, livingEntity.getSoundSource(), 5, 0.8F);
+                        livingEntity.playSound(SoundEvents.SCULK_CATALYST_BLOOM, 5, 0.8F);
                     }
-                    if (entity instanceof Player player) {
+                    if (livingEntity instanceof Player player) {
                         player.displayClientMessage(Component.translatable("text.sculksickness.infected_by.entity_attack"), true);
                     }
                 }
